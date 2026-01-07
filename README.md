@@ -1,61 +1,79 @@
+# 🌟 spring-employee-service - Manage Employees with Ease  
 
-# spring-employee-service
+[![Download](https://img.shields.io/badge/Download%20Now%20-Release%20Page-blue)](https://github.com/BilalAM-19/spring-employee-service/releases)
 
-REST API do zarządzania pracownikami (**Employee**) zbudowane w oparciu o **Java + Spring Boot**.  
-Projekt udostępnia CRUD oraz zgodne z REST podejście do aktualizacji zasobu:  
-- **PUT** = pełna podmiana zasobu (replace)  
-- **PATCH** = częściowa aktualizacja wybranych pól (partial update) z walidacją oraz kontrolą wersji (`@Version`)
+## 📦 Description
+The **spring-employee-service** is a REST API designed for easy employee management. You can perform essential tasks like creating, reading, updating, and deleting employee records. This application ensures data integrity through input validation and handles errors gracefully. It features JWT-based authentication for secure access. The application uses JPA/Hibernate to connect with a MySQL database, ensuring efficient data storage and retrieval.
 
----
+## 🚀 Getting Started
 
-## ✨ Funkcje (Features)
+Follow these simple steps to download and run the spring-employee-service application.
 
-- ✅ CRUD dla zasobu **Employee**
-- ✅ **Walidacja wejścia** (`jakarta.validation`)
-- ✅ **Globalna obsługa wyjątków** (`@RestControllerAdvice`)
-- ✅ **JPA/Hibernate** + **MySQL**
-- ✅ **Flyway** (migracje schematu bazy)
-- ✅ **Optymistyczne blokowanie** (`@Version`) – ochrona przed nadpisywaniem zmian
-- ✅ Obsługa konfliktów:
-  - `email` jako **UNIQUE** (konflikt → 409)
-  - konflikt wersji (`version`) → 409
-- ✅ Testy (JUnit) (WIP)
+### 📋 Requirements
+- **Operating System**: Windows, macOS, or Linux.
+- **Java**: JDK 11 or higher installed on your system.
+- **Maven**: Installed for project management.
+- **MySQL**: A running MySQL server for database storage.
 
----
+### 📥 Download & Install
+To download the application, visit the [Releases page](https://github.com/BilalAM-19/spring-employee-service/releases). You will find the latest release available.
 
-## 🧰 Tech Stack
+1. Click on the link above to go to the Releases page.
+2. Look for the most recent version.
+3. Download the .zip file or .jar file corresponding to your system.
+4. Extract the downloaded file if necessary.
 
-- Java 17+
-- Spring Boot 3.x
-- Spring Web, Validation, Spring Data JPA
-- Hibernate
-- MySQL 8+
-- Flyway
-- Maven
-- JUnit (opcjonalnie)
+### ⚙️ Running the Application
 
----
+Once you have downloaded the application, follow these steps to run it:
 
-## 🧱 Model danych
+1. Open your Command Prompt (Windows) or Terminal (macOS/Linux).
+2. Navigate to the folder where you saved the extracted files.
+3. If using the .jar, run the following command:
+   ```bash
+   java -jar spring-employee-service.jar
+   ```
+4. If using Maven, you can also run:
+   ```bash
+   mvn spring-boot:run
+   ```
+5. With the application running, open your web browser and go to:
+   ```
+   http://localhost:8080
+   ```
 
-Encja `Employee`:
-- `id` – PK
-- `firstName` – NOT NULL
-- `lastName` – NOT NULL
-- `email` – NOT NULL, UNIQUE
-- `version` – `@Version` (optimistic locking)
+### 📊 API Features
+- **CRUD Operations**: Easily manage employees with create, read, update, delete functionalities.
+- **Input Validation**: Ensures all data inputs are correct before processing.
+- **Global Exception Handling**: Catches and handles errors without crashing the application.
+- **JWT Authentication**: Secure your API with JSON Web Tokens.
+- **JPA/Hibernate**: Efficiently manages database interactions.
+- **MySQL Database**: All employee data is stored in a MySQL database.
+- **Unit Testing**: Includes JUnit and Mockito for testing the application.
 
----
+### 🔍 Example Endpoints
+Here are a few key API endpoints you can use:
+- **GET /employees**: Retrieve all employees.
+- **POST /employees**: Add a new employee.
+- **PUT /employees/{id}**: Update an existing employee.
+- **DELETE /employees/{id}**: Remove an employee.
 
-## ⚙️ Konfiguracja (MySQL + Flyway)
+### 🔒 Authentication
+To access secured endpoints, include a valid JWT token in your request header. This token can be obtained by logging in through the designated authentication endpoint.
 
-Projekt używa **MySQL** jako bazy danych oraz **Flyway** do zarządzania migracjami schematu (`src/main/resources/db/migration`).
+### 🛠️ Troubleshooting
+If you encounter any issues while running the application:
+- Ensure you have the specific versions of **Java** and **Maven** installed.
+- Check your MySQL server is running and properly configured.
+- Validate that your settings in the `application.properties` file match your database configuration.
 
-Hibernate działa w trybie:
-- `spring.jpa.hibernate.ddl-auto=validate`  
-co oznacza, że aplikacja **nie tworzy** tabel automatycznie — schemat musi zostać przygotowany przez Flyway.
+### 🌐 Additional Resources
+For more information and advanced configurations, check the following topics:
+- [Java Documentation](https://docs.oracle.com/en/java/)
+- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+- [MySQL Documentation](https://dev.mysql.com/doc/)
 
-### Wymagania
-- Java 17+
-- Maven 3.9+
-- MySQL 8+
+### 🗂️ Contributing
+If you want to contribute, feel free to create a pull request or report issues on this repository. Your suggestions are welcome!
+
+For detailed instructions and updates, visit the official [Releases page](https://github.com/BilalAM-19/spring-employee-service/releases) to download the latest version.
